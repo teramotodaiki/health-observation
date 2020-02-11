@@ -9,9 +9,6 @@
 ### 入力フォーム
 [![Image from Gyazo](https://i.gyazo.com/78ca77ee2cb2816dfbbc3ec9427fc1bd.png)](https://gyazo.com/78ca77ee2cb2816dfbbc3ec9427fc1bd)
 
-### 回答のスプレッドシート（回答データ）
-[![Image from Gyazo](https://i.gyazo.com/9927238f450f53da19ad1991040974ce.png)](https://gyazo.com/9927238f450f53da19ad1991040974ce)
-
 ### 日付ごとに並べたシート（自動生成）
 [![Image from Gyazo](https://i.gyazo.com/ecfa56e88b81faa1ab3ad8861d455bcd.png)](https://gyazo.com/ecfa56e88b81faa1ab3ad8861d455bcd)
 
