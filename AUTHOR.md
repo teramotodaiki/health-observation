@@ -2,7 +2,7 @@
 
 本アドオンを適切な管理者（配布者、責任者）のもとに移譲していくための議論をスムーズにするための叩き台として公開しています。
 
-https://github.com/teramotodaiki/health-observation/issues/2 に本件の議論スレッドがありますので、ご活用ください。
+[#2 アドオン公開にあたって記入した情報をまとめる](https://github.com/teramotodaiki/health-observation/issues/2) に本件の議論スレッドがありますので、ご活用ください。
 
 **議論の内容は公開情報であることに御留意ください**
 
