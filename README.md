@@ -10,7 +10,7 @@
 [![Image from Gyazo](https://i.gyazo.com/78ca77ee2cb2816dfbbc3ec9427fc1bd.png)](https://gyazo.com/78ca77ee2cb2816dfbbc3ec9427fc1bd)
 
 ### 日付ごとに並べたシート（自動生成）
-[![Image from Gyazo](https://i.gyazo.com/ecfa56e88b81faa1ab3ad8861d455bcd.png)](https://gyazo.com/ecfa56e88b81faa1ab3ad8861d455bcd)
+[![Image from Gyazo](https://i.gyazo.com/6635b05c61f2eeeb4fcbf6d4353abe6b.png)](https://gyazo.com/6635b05c61f2eeeb4fcbf6d4353abe6b)
 
 ### 経過観察開始からの経過日数ごとに並べたシート（自動生成）
 [![Image from Gyazo](https://i.gyazo.com/195055d32c834f52bf91ec4ead0ae9e1.png)](https://gyazo.com/195055d32c834f52bf91ec4ead0ae9e1)
