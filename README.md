@@ -2,6 +2,12 @@
 
 学校や会社などの組織で簡単に健康監視を行うためのアドオンです。
 
+## リンク
+
+- [Privacy policy（プライバシーポリシー）](https://teramotodaiki.github.io/health-observation/PRIVACY_POLICY)
+- [Terms of use（利用規約）](https://teramotodaiki.github.io/health-observation/TERMS_OF_USE)
+
+
 ## スクリーンショット
 
 > ダミーデータを用いています
