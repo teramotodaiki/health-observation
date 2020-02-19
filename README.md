@@ -50,7 +50,7 @@
   [![Image from Gyazo](https://i.gyazo.com/a228eb33aa745a804c63dc280a669898.png)](https://gyazo.com/a228eb33aa745a804c63dc280a669898)
   [![Image from Gyazo](https://i.gyazo.com/fbf55e32d5fb07202f760e199e32a7cf.png)](https://gyazo.com/fbf55e32d5fb07202f760e199e32a7cf)
 1. `コード.gs` の中に書いてある文字 `function myFuncion () { }` を、全て消してください  
-  [![Image from Gyazo](https://i.gyazo.com/f3c5fad98ff2a20bbebeb1d3c88bd4d5.png)](https://gyazo.com/f3c5fad98ff2a20bbebeb1d3c88bd4d5)
+  [![Image from Gyazo](https://i.gyazo.com/f3c5fad98ff2a20bbebeb1d3c88bd4d5.png)](https://gyazo.com/f3c5fad98ff2a20bbebeb1d3c88bd4d5)  
   このように、入力欄を空にしてください
 1. 次に [こちらのリンクをクリック](https://teramotodaiki.github.io/health-observation/copy-the-script) して、 *スクリプトをコピー* して下さい
 1. コピーした文章を、先ほど消したところにを貼り付けます。１行目あたりを **右クリック** して *貼り付け* を押してください  
