@@ -33,7 +33,7 @@
 
         var code = `
 // スプレッドシート内のシートの名前。これをシートの識別子にする
-const sheetNames = {
+var sheetNames = {
   dataSource: '', // ここには最も左にあるシートの名前が入る
   dataRemarks: '備考',
   statSpentDays: '経過観察開始からの経過日数ごと',
@@ -42,7 +42,7 @@ const sheetNames = {
 
 // 予想される潜伏期間 [日数]
 // 健康監視が始まってからこの期間を過ぎた個人のデータは結果から除外する
-const incubationPeriod = 14;
+var incubationPeriod = 14;
 
 /**
  * 全てのシートを再描画する
@@ -225,7 +225,7 @@ function createPerson(id, timestamp, keyValuePairs) {
 /* renderer */
 
 // １日[ms]
-const DAY = 24 * 60 * 60 * 1000;
+var DAY = 24 * 60 * 60 * 1000;
 
 /**
  * 経過観察の日数ごとにシートに表示する
