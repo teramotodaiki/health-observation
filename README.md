@@ -61,6 +61,10 @@
   [![Image from Gyazo](https://i.gyazo.com/a491941f3fa68d226330c1f3215a6ba7.png)](https://gyazo.com/a491941f3fa68d226330c1f3215a6ba7)
 1. このような表示が出てくるので、好きな名前をつけて *OK* をクリックします。 *無題のプロジェクト* のままでも構いません  
   [![Image from Gyazo](https://i.gyazo.com/85457b6769b4f498b32f43a4d7cdebf9.png)](https://gyazo.com/85457b6769b4f498b32f43a4d7cdebf9)
+1. *関数を選択* → *PLEASE_RUN_THIS_FUNCTION_AT_FIRST* を選択します
+  [![Image from Gyazo](https://i.gyazo.com/cfc4a12557d930ac13a5a28f5df8db19.png)](https://gyazo.com/cfc4a12557d930ac13a5a28f5df8db19)
+1. 再生ボタンを押して、スクリプトを実行します  
+  [![Image from Gyazo](https://i.gyazo.com/10e48ffa96f837f3e7938f7e6db4337b.png)](https://gyazo.com/10e48ffa96f837f3e7938f7e6db4337b)
 1. このような表示が出てくるので、 *許可を確認* をクリックします  
   [![Image from Gyazo](https://i.gyazo.com/bb5784696ab3050de4cd8084085bbcfd.png)](https://gyazo.com/bb5784696ab3050de4cd8084085bbcfd)
 1. このような表示が出てくるので、 *詳細* をクリックします  
@@ -69,9 +73,7 @@
   [![Image from Gyazo](https://i.gyazo.com/9df67a3fd55879d0d1ddc67ccde71296.png)](https://gyazo.com/9df67a3fd55879d0d1ddc67ccde71296)
 1. このような表示が出てくるので、 *許可* をクリックします
   [![Image from Gyazo](https://i.gyazo.com/6fa2f90913226edf4d4921fb59a30333.png)](https://gyazo.com/6fa2f90913226edf4d4921fb59a30333)
-1. 元のページに戻るので、 *関数を選択* → *PLEASE_RUN_THIS_FUNCTION_AT_FIRST* を選択します
-  [![Image from Gyazo](https://i.gyazo.com/cfc4a12557d930ac13a5a28f5df8db19.png)](https://gyazo.com/cfc4a12557d930ac13a5a28f5df8db19)
-1. 再生ボタンを押して、スクリプトを実行します  
+1. 元のページに戻るので、もう一度再生ボタンを押して、スクリプトを実行します  
   [![Image from Gyazo](https://i.gyazo.com/10e48ffa96f837f3e7938f7e6db4337b.png)](https://gyazo.com/10e48ffa96f837f3e7938f7e6db4337b)
 1. ボタンを押してから数秒後に、スプレッドシートの方に「経過観察開始からの経過日数ごと」「日付ごと」の２つのシートが生成されます。これでセットアップは完了です 🎉 お疲れ様でした！
 
