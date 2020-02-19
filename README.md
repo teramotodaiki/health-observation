@@ -33,29 +33,47 @@
 
 ## 準備①　フォームを作成する
 
-> 現在アドオンの公開審査中につき、Google 公式ストアからのインストールは出来ません。２０２０年３月以降に導入予定の方は、アドオンの公開をお待ちください
-> なお、 **本アドオンのソースコードは全て一般公開されています** 
-
 1. [Google フォーム](https://www.google.com/intl/ja_jp/forms/about/) で調査用のフォームを作成します。詳しくは [フォームの作り方](#フォームの作り方) を参照してください
 2. *スプレッドシートの作成* （または *回答をスプレッドシートに表示* ）をクリックして、新しいスプレッドシートを作ります。名前はなんでも構いません。
   [![Image from Gyazo](https://i.gyazo.com/fe67df9733dd396f29d5ba12eae0df22.png)](https://gyazo.com/fe67df9733dd396f29d5ba12eae0df22)
 3. これで
 
-## 準備②　アドオンを適用する
+## 準備②　スクリプトを適用する
 
-1. [こちらのリンクをクリック](https://script.google.com/d/1Can7MRQ877AVAzD6W8x9-eS_yLSpd0FtLN0nBY6Y8fs5ngqly5RKtaXc/edit?usp=sharing) して、ページを開きます
-1. あなたの Google アカウントでログインします（このあとファイルをコピーするために必要です。あなたの個人情報は読み取りません）
-1. *ファイル* → *コピーを作成* をクリックします  
-  [![Image from Gyazo](https://i.gyazo.com/3820661427fbb7b98e6be7350c761506.png)](https://gyazo.com/3820661427fbb7b98e6be7350c761506)
-1. *実行* → *アドオンとしてテスト* をクリックします
-  [![Image from Gyazo](https://i.gyazo.com/badffb4a07db12821aa4524ecfd96eda.png)](https://gyazo.com/badffb4a07db12821aa4524ecfd96eda)
-1. **インストール設定** を *インストール済み、有効* に変更します  
-  [![Image from Gyazo](https://i.gyazo.com/4da32ed4058d1df2102e6db98715c720.png)](https://gyazo.com/4da32ed4058d1df2102e6db98715c720)
-1. *ドキュメントを選択* → *スプレッドシート* の順にクリックし、一覧から先ほど作成したスプレッドシートを選択します
-1. *保存* をクリックします
-1. **保存済みのテストを実行する** に新しい行が追加されているので、丸いチェックをオンにして *テスト* をクリックします  
-  [![Image from Gyazo](https://i.gyazo.com/a92c9235bb7a13ebf15cc0581d921a92.png)](https://gyazo.com/a92c9235bb7a13ebf15cc0581d921a92)
-1. インストールしてから数秒後に、「経過観察開始からの経過日数ごと」「日付ごと」の２つのシートが生成されます。これでセットアップは完了です 🎉 お疲れ様でした！
+> 現在アドオンの公開審査中につき、Google 公式ストアからのインストールは出来ません。２０２０年３月以降に導入予定の方は、アドオンの公開をお待ちください
+>
+> それまでにご利用いただきたい場合、次の手順にそってスクリプトを適用してください。 **本プロジェクトのソースコードは全て一般公開されています** ので、誰でもご利用いただけます
+
+
+1. 先ほど作成した回答のスプレッドシートを開きます
+1. *ツール* → *スクリプトエディタ* をクリックします。すると、 *無題のプロジェクト* という名前の編集画面が表示されます  
+  [![Image from Gyazo](https://i.gyazo.com/a228eb33aa745a804c63dc280a669898.png)](https://gyazo.com/a228eb33aa745a804c63dc280a669898)
+  [![Image from Gyazo](https://i.gyazo.com/fbf55e32d5fb07202f760e199e32a7cf.png)](https://gyazo.com/fbf55e32d5fb07202f760e199e32a7cf)
+1. `コード.gs` の中に書いてある文字 `function myFuncion () { }` を、全て消してください  
+  [![Image from Gyazo](https://i.gyazo.com/f3c5fad98ff2a20bbebeb1d3c88bd4d5.png)](https://gyazo.com/f3c5fad98ff2a20bbebeb1d3c88bd4d5)
+  このように、入力欄を空にしてください
+1. 次に [こちらのリンクをクリック](https://teramotodaiki.github.io/health-observation/copy-the-script) して、 *スクリプトをコピー* して下さい
+1. コピーした文章を、先ほど消したところにを貼り付けます。１行目あたりを **右クリック** して *貼り付け* を押してください  
+  [![Image from Gyazo](https://i.gyazo.com/c7d4b30546797935a056e5382c4a4411.png)](https://gyazo.com/c7d4b30546797935a056e5382c4a4411)
+1. このようになれば OK です（細かい内容は違っているかも知れません）  
+  [![Image from Gyazo](https://i.gyazo.com/e7656febd64d58312dbc85705780367f.png)](https://gyazo.com/e7656febd64d58312dbc85705780367f)
+1. 保存ボタン（フロッピーディスクのアイコン）をクリックします  
+  [![Image from Gyazo](https://i.gyazo.com/a491941f3fa68d226330c1f3215a6ba7.png)](https://gyazo.com/a491941f3fa68d226330c1f3215a6ba7)
+1. このような表示が出てくるので、好きな名前をつけて *OK* をクリックします。 *無題のプロジェクト* のままでも構いません  
+  [![Image from Gyazo](https://i.gyazo.com/85457b6769b4f498b32f43a4d7cdebf9.png)](https://gyazo.com/85457b6769b4f498b32f43a4d7cdebf9)
+1. このような表示が出てくるので、 *許可を確認* をクリックします  
+  [![Image from Gyazo](https://i.gyazo.com/bb5784696ab3050de4cd8084085bbcfd.png)](https://gyazo.com/bb5784696ab3050de4cd8084085bbcfd)
+1. このような表示が出てくるので、 *詳細* をクリックします  
+  [![Image from Gyazo](https://i.gyazo.com/326bcceffcbffb199cfeb18dd034168b.png)](https://gyazo.com/326bcceffcbffb199cfeb18dd034168b)
+1. このような表示が出てくるので、 *【先ほど付けた名前】（安全ではないページ）に移動* をクリックします  
+  [![Image from Gyazo](https://i.gyazo.com/9df67a3fd55879d0d1ddc67ccde71296.png)](https://gyazo.com/9df67a3fd55879d0d1ddc67ccde71296)
+1. このような表示が出てくるので、 *許可* をクリックします
+  [![Image from Gyazo](https://i.gyazo.com/6fa2f90913226edf4d4921fb59a30333.png)](https://gyazo.com/6fa2f90913226edf4d4921fb59a30333)
+1. 元のページに戻るので、 *関数を選択* → *PLEASE_RUN_THIS_FUNCTION_AT_FIRST* を選択します
+  [![Image from Gyazo](https://i.gyazo.com/cfc4a12557d930ac13a5a28f5df8db19.png)](https://gyazo.com/cfc4a12557d930ac13a5a28f5df8db19)
+1. 再生ボタンを押して、スクリプトを実行します  
+  [![Image from Gyazo](https://i.gyazo.com/10e48ffa96f837f3e7938f7e6db4337b.png)](https://gyazo.com/10e48ffa96f837f3e7938f7e6db4337b)
+1. ボタンを押してから数秒後に、スプレッドシートの方に「経過観察開始からの経過日数ごと」「日付ごと」の２つのシートが生成されます。これでセットアップは完了です 🎉 お疲れ様でした！
 
 ## 準備ができたら
 
