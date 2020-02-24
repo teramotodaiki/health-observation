@@ -4,7 +4,9 @@
   "description": "Health Observation tool for Google Spreadsheets",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0"
+    "format": "prettier --write '**/*.js'",
+    "lint": "prettier -c '**/*.js'",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/teramotodaiki/health-observation/issues"
   },
-  "homepage": "https://github.com/teramotodaiki/health-observation#readme"
+  "homepage": "https://github.com/teramotodaiki/health-observation#readme",
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
 }
