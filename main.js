@@ -3,8 +3,8 @@ var sheetNames = {
   dataSource: '', // ここには最も左にあるシートの名前が入る
   dataRemarks: '備考',
   statSpentDays: '経過観察開始からの経過日数ごと',
-  statDate: '日付ごと',
-}
+  statDate: '日付ごと'
+};
 
 // 予想される潜伏期間 [日数]
 // 健康監視が始まってからこの期間を過ぎた個人のデータは結果から除外する
@@ -13,7 +13,7 @@ var incubationPeriod = 14;
 /**
  * 最初にこの関数を実行してください。
  */
-function PLEASE_RUN_THIS_FUNCTION_AT_FIRST () {
+function PLEASE_RUN_THIS_FUNCTION_AT_FIRST() {
   updateAll();
   registerFormEvent();
 }
@@ -24,7 +24,7 @@ function PLEASE_RUN_THIS_FUNCTION_AT_FIRST () {
 function updateAll() {
   var people = getPeople();
   var remarks = getRemarks();
-  
+
   renderSpentDays(people, remarks);
   renderDate(people, remarks);
 }
@@ -35,7 +35,7 @@ function updateAll() {
 function updateSpentDays() {
   var people = getPeople();
   var remarks = getRemarks();
-  
+
   renderSpentDays(people, remarks);
 }
 
@@ -45,7 +45,7 @@ function updateSpentDays() {
 function updateDate() {
   var people = getPeople();
   var remarks = getRemarks();
-  
+
   renderDate(people, remarks);
 }
 
@@ -75,9 +75,9 @@ function onEdit(e) {
   }
   var idRange = sheet.getRange(row, 1);
   var id = idRange.getValue();
-  
+
   updateRemark(id, value);
-  
+
   // もう一方のシートを更新する
   if (name === sheetNames.statSpentDays) {
     updateDate();
@@ -106,13 +106,16 @@ function onInstall(e) {
  */
 function registerFormEvent() {
   // すでにトリガーがあればスキップ
-  var triggers = ScriptApp.getProjectTriggers().filter(function (trigger) {
-    return trigger.getEventType() == ScriptApp.EventType.ON_FORM_SUBMIT && trigger.getHandlerFunction() === 'updateAll';
+  var triggers = ScriptApp.getProjectTriggers().filter(function(trigger) {
+    return (
+      trigger.getEventType() == ScriptApp.EventType.ON_FORM_SUBMIT &&
+      trigger.getHandlerFunction() === 'updateAll'
+    );
   });
   if (triggers.length > 0) {
     return;
   }
-  
+
   // 新しいトリガーを登録する
   var spreadSheet = SpreadsheetApp.getActive();
   ScriptApp.newTrigger('updateAll')
@@ -120,7 +123,6 @@ function registerFormEvent() {
     .onFormSubmit()
     .create();
 }
-
 
 /* Person */
 
@@ -130,49 +132,48 @@ function registerFormEvent() {
  */
 function getPeople() {
   // 全てのシートを取得する。最も左にあるシートをデータソースとみなし、その名前を取得しておく
-  var sheets =  SpreadsheetApp.getActiveSpreadsheet().getSheets();
+  var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets();
   const dataSource = sheets[0];
   sheetNames.dataSource = dataSource.getName();
   Logger.log(sheetNames.dataSource + 'からデータを取得します');
-  
+
   // TODO: 例外処理
-  
+
   var data = dataSource.getDataRange().getValues();
-  
+
   // １行目のデータからカラムの数とラベルを読み取る
   // ただし、カラム１はタイムスタンプ、カラム２は識別子とみなす
   var labelOfColumns = [];
   for (var column = 2; column < 100; column++) {
     var label = data[0][column];
     if (label) {
-      labelOfColumns.push(label)
+      labelOfColumns.push(label);
     } else {
       break;
     }
   }
   Logger.log('カラム：' + labelOfColumns.join());
-  
+
   const people = {}; // { 識別子: Person } のマップ
-  
+
   // 2行目以降のデータを個人でグルーピングする
   for (var row = 1; row < data.length; row++) {
     var timestamp = data[row][0]; // タイムスタンプ文字列
-    var id = data[row][1];        // 識別子
+    var id = data[row][1]; // 識別子
     var keyValuePairs = zipObject(labelOfColumns, data[row].slice(2)); // フォームに入力された内容のキーバリューペア値
 
     var current = people[id];
     if (!current) {
       // Person を新しく作ってマップに追加する
-      people[id] = createPerson(id, timestamp, keyValuePairs);      
+      people[id] = createPerson(id, timestamp, keyValuePairs);
     } else {
       // 既存の Person に新しい報告を追加する
       current.reports[timestamp] = keyValuePairs;
     }
   }
-  
+
   return people;
 }
-
 
 /**
  * 個人のオブジェクトを生成する（GAS には class がない）
@@ -181,20 +182,19 @@ function getPeople() {
  * @param keyValuePairs フォームに入力された内容のキーバリューペア値（データソースのカラム３〜）
  * @return 個人を表すオブジェクト
  */
-function createPerson(id, timestamp, keyValuePairs) {  
+function createPerson(id, timestamp, keyValuePairs) {
   var person = {
     /* 個人を特定する識別子。学籍番号など */
-    id: id, 
+    id: id,
     /* 経過観察が始まった日付（数値） */
-    startAt: Date.parse(timestamp), 
+    startAt: Date.parse(timestamp),
     /* その他、フォームに入力された内容のキーバリューペア値を、タイムスタンプをキーとしたマップに保管する */
     reports: {}
   };
   person.reports[timestamp] = keyValuePairs;
-  
+
   return person;
 }
-
 
 /* renderer */
 
@@ -206,49 +206,54 @@ var DAY = 24 * 60 * 60 * 1000;
  */
 function renderSpentDays(people, remarks) {
   var now = Date.now();
-  
-  var sheet = SpreadsheetApp.getActive().getSheetByName(sheetNames.statSpentDays);
+
+  var sheet = SpreadsheetApp.getActive().getSheetByName(
+    sheetNames.statSpentDays
+  );
   if (!sheet) {
     // シートがない場合は新しく作る
     sheet = SpreadsheetApp.getActive().insertSheet(sheetNames.statSpentDays);
   }
   sheet.clearContents(); // 一度すべて空にする（書式設定は残す）
-  
+
   // ヘッダを表示する
-  var headers = [
-    '識別子＼経過日'
-  ];
+  var headers = ['識別子＼経過日'];
   for (var i = 0; i < incubationPeriod; i++) {
-    headers.push((i + 1) + '日目'); // １日目〜　表示
+    headers.push(i + 1 + '日目'); // １日目〜　表示
   }
   headers.push('備考');
   sheet.appendRow(headers);
-  
+
   // 現時刻から計算して 14 日前
   var since = now - incubationPeriod * DAY;
-  Logger.log(new Date(since).toLocaleString() + ' より前に健康監視を開始した個人は除外します');
-  
+  Logger.log(
+    new Date(since).toLocaleString() +
+      ' より前に健康監視を開始した個人は除外します'
+  );
+
   // それぞれの学生の報告内容を表示
-  Object.keys(people).forEach(function (id) {
+  Object.keys(people).forEach(function(id) {
     var person = people[id];
     if (person.startAt < since) {
       return; // この人の健康監視は終了した
     }
-    
+
     // 報告を開始してから N 日目の報告を [N] に入れる。あらかじめ空文字で埋めておく
     var row = [];
     for (var i = 0; i < incubationPeriod; i++) {
       row[i] = '';
     }
-    
+
     // それぞれの報告をセルに入れる
-    Object.keys(person.reports).forEach(function (timestamp) {
+    Object.keys(person.reports).forEach(function(timestamp) {
       var keyValuePairs = person.reports[timestamp];
       var daysSpent = diffDays(Date.parse(timestamp), person.startAt); // timestamp が startAt から何日経過したか
-      var text = Object.keys(keyValuePairs).map(function (key) {
-        // キーは最初の一文字だけ表示。キーとバリューは":"区切り、それぞれの項目は改行区切り
-        return key.substr(0, 1) + ':' + keyValuePairs[key];
-      }).join('\n');
+      var text = Object.keys(keyValuePairs)
+        .map(function(key) {
+          // キーは最初の一文字だけ表示。キーとバリューは":"区切り、それぞれの項目は改行区切り
+          return key.substr(0, 1) + ':' + keyValuePairs[key];
+        })
+        .join('\n');
       if (!row[daysSpent]) {
         row[daysSpent] = text;
       } else {
@@ -256,12 +261,11 @@ function renderSpentDays(people, remarks) {
         row[daysSpent] = text + '\n【重複あり】';
       }
     });
-    
+
     row.unshift(id); // 先頭に来る
     row.push(remarks[id] || ''); // 備考欄
     sheet.appendRow(row);
   });
-  
 }
 
 /**
@@ -276,31 +280,31 @@ function renderDate(people, remarks) {
     sheet = SpreadsheetApp.getActive().insertSheet(sheetNames.statDate);
   }
   sheet.clearContents(); // 一度すべて空にする（書式設定は残す）
-    
+
   // ヘッダを表示する
-  var headers = [
-    '識別子＼日付',
-    '備考'
-  ];
+  var headers = ['識別子＼日付', '備考'];
   for (var i = 0; i < incubationPeriod; i++) {
     var date = new Date(now - i * DAY);
-    headers.push((date.getMonth() + 1) + '/' + date.getDate()); // MM/DD
+    headers.push(date.getMonth() + 1 + '/' + date.getDate()); // MM/DD
   }
- 
+
   sheet.appendRow(headers);
-  
+
   // 現時刻から計算して 14 日前
   var since = now - incubationPeriod * DAY;
-  Logger.log(new Date(since).toLocaleString() + ' より前に健康監視を開始した個人は除外します');
-  
+  Logger.log(
+    new Date(since).toLocaleString() +
+      ' より前に健康監視を開始した個人は除外します'
+  );
+
   // それぞれの学生の報告内容を表示
-  Object.keys(people).forEach(function (id) {
+  Object.keys(people).forEach(function(id) {
     var person = people[id];
     Logger.log(person.startAt - since);
     if (person.startAt < since) {
       return; // この人の健康監視は終了した
     }
-    
+
     // N 日前の報告を row[N + 2] に入れる配列。あらかじめ空文字で埋めておく
     var row = [
       id, // 識別子＼日付のカラム
@@ -309,16 +313,18 @@ function renderDate(people, remarks) {
     for (var i = 0; i < incubationPeriod; i++) {
       row.push('');
     }
-    
+
     // それぞれの報告をセルに入れる
-    Object.keys(person.reports).forEach(function (timestamp) {
+    Object.keys(person.reports).forEach(function(timestamp) {
       var keyValuePairs = person.reports[timestamp];
       var daysAgo = diffDays(now, Date.parse(timestamp)); // timestamp が何日前のものか
       var index = daysAgo + 2; // [N + 2]
-      var text = Object.keys(keyValuePairs).map(function (key) {
-        // キーは最初の一文字だけ表示。キーとバリューは":"区切り、それぞれの項目は改行区切り
-        return key.substr(0, 1) + ':' + keyValuePairs[key];
-      }).join('\n');
+      var text = Object.keys(keyValuePairs)
+        .map(function(key) {
+          // キーは最初の一文字だけ表示。キーとバリューは":"区切り、それぞれの項目は改行区切り
+          return key.substr(0, 1) + ':' + keyValuePairs[key];
+        })
+        .join('\n');
       if (!row[index]) {
         row[index] = text;
       } else {
@@ -326,11 +332,10 @@ function renderDate(people, remarks) {
         row[index] = text + '\n【重複あり】';
       }
     });
-        
+
     sheet.appendRow(row);
   });
 }
-
 
 /* remark */
 
@@ -339,7 +344,9 @@ function renderDate(people, remarks) {
  * 返されるオブジェクトは ID と備考文字列のキーバリューペア
  */
 function getRemarks() {
-  var dataRemark = SpreadsheetApp.getActive().getSheetByName(sheetNames.dataRemarks);
+  var dataRemark = SpreadsheetApp.getActive().getSheetByName(
+    sheetNames.dataRemarks
+  );
   if (!dataRemark) {
     return {};
   }
@@ -362,14 +369,19 @@ function testUpdateRemark() {
  * @param id 識別子
  * @param value 備考の文字列
  */
-function updateRemark(id, value) {  
-  var dataRemark = SpreadsheetApp.getActive().getSheetByName(sheetNames.dataRemarks);
+function updateRemark(id, value) {
+  var dataRemark = SpreadsheetApp.getActive().getSheetByName(
+    sheetNames.dataRemarks
+  );
   if (!dataRemark) {
     // シートがなければ作る。フォーム、２つのビュー、の後に挿入する
-    dataRemark = SpreadsheetApp.getActive().insertSheet(sheetNames.dataRemarks, 3);
+    dataRemark = SpreadsheetApp.getActive().insertSheet(
+      sheetNames.dataRemarks,
+      3
+    );
   }
   var idRows = dataRemark.getRange('A:A').getValues();
-  
+
   // ID が存在していたら、その行の２列目のセルを上書きする
   for (var i = 0; i < idRows.length; i++) {
     // ID は文字列として比較する
@@ -380,11 +392,10 @@ function updateRemark(id, value) {
       return;
     }
   }
-  
+
   // ID が存在しなければ、新しい行を追加する
   dataRemark.appendRow([id, value]);
 }
-
 
 /* utils */
 
@@ -400,7 +411,6 @@ function zipObject(keys, values) {
   return obj;
 }
 
-
 /**
  * ふたつの Unix エポック[ミリ秒]が、何日離れているかを求める
  * 現在のタイムゾーンで 0:00am を基準として整数値を返す
@@ -408,10 +418,11 @@ function zipObject(keys, values) {
 function diffDays(time1, time2) {
   var date1 = new Date(time1);
   var date2 = new Date(time2);
-  var diff = new Date(date1.getFullYear(), date1.getMonth(), date1.getDate()) - new Date(date2.getFullYear(), date2.getMonth(), date2.getDate());
+  var diff =
+    new Date(date1.getFullYear(), date1.getMonth(), date1.getDate()) -
+    new Date(date2.getFullYear(), date2.getMonth(), date2.getDate());
   return Math.floor(diff / DAY);
 }
-
 
 /**
  * カラムのラベルを受け取って、そのカラムが何列目にあるのかを返す
@@ -429,5 +440,3 @@ function getColumnByLabel(sheet, label) {
   }
   return null; // ラベルが存在しない
 }
-
-
