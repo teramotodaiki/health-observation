@@ -13,6 +13,8 @@
 
 ### 入力フォーム
 
+フォームの内容は自由にカスタマイズできます。詳しくは [フォームの作り方](#フォームの作り方) を参照
+
 [![Image from Gyazo](https://i.gyazo.com/78ca77ee2cb2816dfbbc3ec9427fc1bd.png)](https://gyazo.com/78ca77ee2cb2816dfbbc3ec9427fc1bd)
 
 ### 日付ごとに並べたシート（自動生成）
