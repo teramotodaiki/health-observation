@@ -39,15 +39,15 @@
   - 32x32
     - ![](https://lh3.googleusercontent.com/-UAMtYHsrcSE/XkGHxkdp2UI/AAAAAAAAYqk/7T06Rzc-QwsqAY7EQNkGa4UQe1CwacX-gCLcBGAsYHQ/s72-c/x32.png)
 - デベロッパーのウェブサイト
-  - https://teramotodaiki.github.io/health-observation/
+  - https://www.health-monitoring.net/
 - デベロッパー名
   - Daiki Teramoto
 - デベロッパーのメールアドレス（省略可）
   - 寺本のメールアドレス
 - 利用規約の URL
-  - https://teramotodaiki.github.io/health-observation/TERMS_OF_USE
+  - https://www.health-monitoring.net/TERMS_OF_USE
 - プライバシー ポリシーの URL
-  - https://teramotodaiki.github.io/health-observation/PRIVACY_POLICY
+  - https://www.health-monitoring.net/PRIVACY_POLICY
 - OAuth 2.0 スコープ
   - https://www.googleapis.com/auth/userinfo.email
   - https://www.googleapis.com/auth/userinfo.profile
@@ -102,10 +102,10 @@ https://teramotodaiki.github.io/health-observation/
   - teramotodaiki.github.io
 - アプリケーション ホームページ リンク
   > 同意画面に表示されます。承認済みドメインでホストされている必要があります。
-  - https://teramotodaiki.github.io/health-observation
+  - https://www.health-monitoring.net/
 - アプリケーション プライバシー ポリシー リンク
   > 同意画面に表示されます。承認済みドメインでホストされている必要があります。
-  - https://teramotodaiki.github.io/health-observation/PRIVACY_POLICY
+  - https://www.health-monitoring.net/PRIVACY_POLICY
 - アプリケーション利用規約 リンク (省略可)
   > 同意画面に表示されます。承認済みドメインでホストされている必要があります。
   - 省略
