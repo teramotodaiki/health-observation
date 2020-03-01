@@ -99,7 +99,7 @@ https://teramotodaiki.github.io/health-observation/
 - サポートメール
   - 寺本のメールアドレス
 - 承認済みドメイン
-  - teramotodaiki.github.io
+  - www.health-monitoring.net
 - アプリケーション ホームページ リンク
   > 同意画面に表示されます。承認済みドメインでホストされている必要があります。
   - https://www.health-monitoring.net/
