@@ -244,6 +244,7 @@ function renderSpentDays(people, remarks) {
     for (var i = 0; i < incubationPeriod; i++) {
       row[i] = '';
     }
+    var answers = []; // ある日の回答が何件あるかを保持する
 
     // それぞれの報告をセルに入れる
     Object.keys(person.reports).forEach(function(timestamp) {
@@ -257,9 +258,15 @@ function renderSpentDays(people, remarks) {
         .join('\n');
       if (!row[daysSpent]) {
         row[daysSpent] = text;
-      } else {
-        // 既に同日の報告がある場合、重複とみなす
-        row[daysSpent] = text + '\n【重複あり】';
+        answers[daysSpent] = 1;
+      } else if (answers[daysSpent] === 1) {
+        // 既に同日の報告がある場合、改行を２つ入れて付け足す
+        row[daysSpent] += '\n\n' + text;
+        answers[daysSpent] = 2;
+      } else if (answers[daysSpent] === 2) {
+        // ３つ以上の回答は【重複あり】と表示する
+        row[daysSpent] += '\n【重複あり】';
+        answers[daysSpent] = 3;
       }
     });
 
@@ -314,6 +321,7 @@ function renderDate(people, remarks) {
     for (var i = 0; i < incubationPeriod; i++) {
       row.push('');
     }
+    var answers = []; // ある日の回答が何件あるかを保持する
 
     // それぞれの報告をセルに入れる
     Object.keys(person.reports).forEach(function(timestamp) {
@@ -326,11 +334,18 @@ function renderDate(people, remarks) {
           return key.substr(0, 1) + ':' + keyValuePairs[key];
         })
         .join('\n');
+
       if (!row[index]) {
         row[index] = text;
-      } else {
-        // 既に同日の報告がある場合、重複とみなす
-        row[index] = text + '\n【重複あり】';
+        answers[index] = 1;
+      } else if (answers[index] === 1) {
+        // 既に同日の報告がある場合、改行を２つ入れて付け足す
+        row[index] = text + '\n\n' + text;
+        answers[index] = 2;
+      } else if (answers[index] === 2) {
+        // 3つ以上の回答は【重複あり】と表示する
+        row[index] += '\n【重複あり】';
+        answers[index] = 3;
       }
     });
 
