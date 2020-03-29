@@ -90,6 +90,7 @@ function onEdit(e) {
  * スプレットシートが開かれた時、トリガーを登録する
  */
 function onOpen(e) {
+  createMenu(e);
   updateAll();
   registerFormEvent();
 }
@@ -439,4 +440,13 @@ function getColumnByLabel(sheet, label) {
     }
   }
   return null; // ラベルが存在しない
+}
+
+/**
+ * デバッグ用のメニューを作る
+ */
+function createMenu(e) {
+  const menu = SpreadsheetApp.getUi().createAddonMenu();
+  menu.addItem('ビューを更新する', 'updateAll');
+  menu.addToUi();
 }
