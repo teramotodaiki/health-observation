@@ -1,7 +1,5 @@
 # 健康監視ツール (Health Monitoring Tool)
 
-![favicon](favicon.png)
-
 学校や会社などの組織で簡単に健康監視を行うためのアドオンです。
 
 ## リンク
