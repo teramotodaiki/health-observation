@@ -1,4 +1,4 @@
-# health-observation
+# 健康監視ツール (Health Monitoring Tool)
 
 ![favicon](favicon.png)
 
