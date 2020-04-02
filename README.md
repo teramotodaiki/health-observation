@@ -2,6 +2,12 @@
 
 学校や会社などの組織で簡単に健康監視を行うためのアドオンです。
 
+## 健康監視とは？
+
+ウイルスの感染が確認された場合、その周囲で暮らしていた方を「濃厚接触者」と呼びます。この人たちの多くは非感染者ですが、一般的に１日２回の体温計測や症状の報告が必要とされています。これを「健康監視」と呼びます。健康監視を行うのは、主に自治体、保健所、大企業の産業保健師、大学などです。
+
+現在、健康監視は電話で行われることが一般的です。対象が数人程度であれば担当者が電話をかけまくれば良いのですが、数十〜数百人の濃厚接触者がいた場合は現実的ではありません。そこで、Google フォームを用いて効率的に健康監視を行えるようにしたのが、このアドオンです。
+
 ## リンク
 
 - [Privacy policy（プライバシーポリシー）](https://teramotodaiki.github.io/health-observation/PRIVACY_POLICY)
@@ -34,50 +40,24 @@
   - 詳しくは [フォームの作り方](#フォームの作り方) を参照してください
 - １日に複数の回答が送信された場合、【重複あり】と表示されます。スプレッドシート上の重複データを直接削除することも可能です。
 
-## 準備 ① 　フォームを作成する
+## 使い方
 
 1. [Google フォーム](https://www.google.com/intl/ja_jp/forms/about/) で調査用のフォームを作成します。詳しくは [フォームの作り方](#フォームの作り方) を参照してください
 2. _スプレッドシートの作成_ （または _回答をスプレッドシートに表示_ ）をクリックして、新しいスプレッドシートを作ります。名前はなんでも構いません。
    [![Image from Gyazo](https://i.gyazo.com/fe67df9733dd396f29d5ba12eae0df22.png)](https://gyazo.com/fe67df9733dd396f29d5ba12eae0df22)
-3. これでフォームの作成は完了です。今すぐ健康監視を始める場合は、次の章を進めてください
-
-## 準備 ② 　スクリプトを適用する
-
-> 現在アドオンの公開審査中につき、Google 公式ストアからのインストールは出来ません。２０２０年３月以降に導入予定の方は、アドオンの公開をお待ちください
->
-> それまでにご利用いただきたい場合、次の手順にそってスクリプトを適用してください。 **本プロジェクトのソースコードは全て一般公開されています** ので、誰でもご利用いただけます
-
-1. 先ほど作成した回答のスプレッドシートを開きます
-1. _ツール_ → _スクリプトエディタ_ をクリックします。すると、 _無題のプロジェクト_ という名前の編集画面が表示されます
-   [![Image from Gyazo](https://i.gyazo.com/a228eb33aa745a804c63dc280a669898.png)](https://gyazo.com/a228eb33aa745a804c63dc280a669898)
-   [![Image from Gyazo](https://i.gyazo.com/fbf55e32d5fb07202f760e199e32a7cf.png)](https://gyazo.com/fbf55e32d5fb07202f760e199e32a7cf)
-1. `コード.gs` の中に書いてある文字 `function myFuncion () { }` を、全て消してください
-   [![Image from Gyazo](https://i.gyazo.com/f3c5fad98ff2a20bbebeb1d3c88bd4d5.png)](https://gyazo.com/f3c5fad98ff2a20bbebeb1d3c88bd4d5)
-   このように、入力欄を空にしてください
-1. 次に [こちらのリンクをクリック](https://teramotodaiki.github.io/health-observation/copy-the-script) して、 _スクリプトをコピー_ して下さい
-1. コピーした文章を、先ほど消したところにを貼り付けます。１行目あたりを **右クリック** して _貼り付け_ を押してください
-   [![Image from Gyazo](https://i.gyazo.com/c7d4b30546797935a056e5382c4a4411.png)](https://gyazo.com/c7d4b30546797935a056e5382c4a4411)
-1. このようになれば OK です（細かい内容は違っているかも知れません）
-   [![Image from Gyazo](https://i.gyazo.com/e7656febd64d58312dbc85705780367f.png)](https://gyazo.com/e7656febd64d58312dbc85705780367f)
-1. 保存ボタン（フロッピーディスクのアイコン）をクリックします
-   [![Image from Gyazo](https://i.gyazo.com/a491941f3fa68d226330c1f3215a6ba7.png)](https://gyazo.com/a491941f3fa68d226330c1f3215a6ba7)
-1. このような表示が出てくるので、好きな名前をつけて _OK_ をクリックします。 _無題のプロジェクト_ のままでも構いません
-   [![Image from Gyazo](https://i.gyazo.com/85457b6769b4f498b32f43a4d7cdebf9.png)](https://gyazo.com/85457b6769b4f498b32f43a4d7cdebf9)
-1. _関数を選択_ → _PLEASE_RUN_THIS_FUNCTION_AT_FIRST_ を選択します
-   [![Image from Gyazo](https://i.gyazo.com/cfc4a12557d930ac13a5a28f5df8db19.png)](https://gyazo.com/cfc4a12557d930ac13a5a28f5df8db19)
-1. 再生ボタンを押して、スクリプトを実行します
-   [![Image from Gyazo](https://i.gyazo.com/10e48ffa96f837f3e7938f7e6db4337b.png)](https://gyazo.com/10e48ffa96f837f3e7938f7e6db4337b)
-1. このような表示が出てくるので、 _許可を確認_ をクリックします
-   [![Image from Gyazo](https://i.gyazo.com/bb5784696ab3050de4cd8084085bbcfd.png)](https://gyazo.com/bb5784696ab3050de4cd8084085bbcfd)
-1. このような表示が出てくるので、 _詳細_ をクリックします
-   [![Image from Gyazo](https://i.gyazo.com/326bcceffcbffb199cfeb18dd034168b.png)](https://gyazo.com/326bcceffcbffb199cfeb18dd034168b)
-1. このような表示が出てくるので、 _【先ほど付けた名前】（安全ではないページ）に移動_ をクリックします
-   [![Image from Gyazo](https://i.gyazo.com/9df67a3fd55879d0d1ddc67ccde71296.png)](https://gyazo.com/9df67a3fd55879d0d1ddc67ccde71296)
-1. このような表示が出てくるので、 _許可_ をクリックします
-   [![Image from Gyazo](https://i.gyazo.com/6fa2f90913226edf4d4921fb59a30333.png)](https://gyazo.com/6fa2f90913226edf4d4921fb59a30333)
-1. 元のページに戻るので、もう一度再生ボタンを押して、スクリプトを実行します
-   [![Image from Gyazo](https://i.gyazo.com/10e48ffa96f837f3e7938f7e6db4337b.png)](https://gyazo.com/10e48ffa96f837f3e7938f7e6db4337b)
-1. ボタンを押してから数秒後に、スプレッドシートの方に「経過観察開始からの経過日数ごと」「日付ごと」の２つのシートが生成されます。これでセットアップは完了です 🎉 お疲れ様でした！
+3. 画面上部のメニューにある _アドオン_ の _アドオンを取得_ をクリックします
+   [![Image from Gyazo](https://i.gyazo.com/708130d16eb37deb6fdfab07a9894d08.png)](https://gyazo.com/708130d16eb37deb6fdfab07a9894d08)
+4. 検索バーに _健康監視_ と入力して検索します
+   [![Image from Gyazo](https://i.gyazo.com/73a44cfeda193b7d200dfa258df438e9.png)](https://gyazo.com/73a44cfeda193b7d200dfa258df438e9)
+5. 検索結果に表示された健康監視ツールをクリックします
+6. _インストール_ をクリックします
+   [![Image from Gyazo](https://i.gyazo.com/257e01ebaa9ed03179866657e18d5f2c.png)](https://gyazo.com/257e01ebaa9ed03179866657e18d5f2c)
+7. 権限を求められるので、**続行**をクリックします
+   [![Image from Gyazo](https://i.gyazo.com/99bb010017db1fc82da8cd6705fd5ec1.png)](https://gyazo.com/99bb010017db1fc82da8cd6705fd5ec1)
+8. インストールするアカウントを選ぶ画面が表示されるので、フォームを作った時の Google アカウントをクリックします
+9. _許可_ をクリックします（画面の下の方に隠れていて見えないことがあります）
+10. このように表示されれば、インストールは完了です！🎉 お疲れ様でした！
+    [![Image from Gyazo](https://i.gyazo.com/eec98388e4edeaefb6a9f750f03cdbc0.png)](https://gyazo.com/eec98388e4edeaefb6a9f750f03cdbc0)
 
 ## 準備ができたら
 
@@ -120,3 +100,9 @@ Google フォームの編集画面の右上にある _送信_ ボタンを押す
 ### 発熱を赤くするなど、特定のセルだけ書式を変更できますか？
 
 スプレッドシートのカスタム書式設定をご自身で定義できます。現在、このアドオンでは標準サポートしていません。
+
+### フォームに回答を送信してもビューが更新されません
+
+画面上部のメニューバーから、アドオン > 健康監視ツール > ビューを更新する とクリックしていただくと、手動で更新されます。
+
+一度スプレッドシートを閉じてから開き直すと、自動更新が有効化されることがあります。
