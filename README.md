@@ -53,7 +53,6 @@
 6. _インストール_ をクリックします
    [![Image from Gyazo](https://i.gyazo.com/257e01ebaa9ed03179866657e18d5f2c.png)](https://gyazo.com/257e01ebaa9ed03179866657e18d5f2c)
 7. 権限を求められるので、**続行**をクリックします
-   [![Image from Gyazo](https://i.gyazo.com/99bb010017db1fc82da8cd6705fd5ec1.png)](https://gyazo.com/99bb010017db1fc82da8cd6705fd5ec1)
 8. インストールするアカウントを選ぶ画面が表示されるので、フォームを作った時の Google アカウントをクリックします
 9. _許可_ をクリックします（画面の下の方に隠れていて見えないことがあります）
 10. このように表示されれば、インストールは完了です！🎉 お疲れ様でした！
